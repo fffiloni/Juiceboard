@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+  <head>
+
+    <title>Quality Streets | JuiceBoard &#946;</title>
+    <link rel="stylesheet" href="./css/sc-player-red.css" type="text/css">
+    <link rel="icon" type="image/png" href="./css/juke_favicon.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+  <div id="overlay"><span><i class="fa fa-tint"></i></span>
+  <p style="text-transform:uppercase;font-size:10px;">loading fresh sounds in the trackpool</p></div>
+<style>
+    #overlay {
+        position: fixed;
+        background: rgba(0,0,0,1);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index:6000;
+        text-align:center;
+    }
+    #overlay span{
+      margin:0 auto;
+margin-top:18%;
+width:40%;
+display:block;
+    }
+    .hide {
+        display: none;
+        transition-duration:2s;
+    }
+</style>
+<script>
+    $(window).load(function() {
+     $('#overlay').addClass('hide');
+    });
+</script>
+
+   <div class="wrapper">
+    <h1>Showcasing Music</h1>
+
+      <div class="post">
+
+
+
+        <h2>&#946;.juiceboard</h2>
+        <h3><span class="drop_title">Quality Streets</span><i class="fa fa-tint"></i> </h3>
+        <p class="slogan">press play: enjoy the ride or explore the trackpool</p>
+        <div class="sc-player">
+        <a href="https://soundcloud.com/albert-ava/sets/jazz-hip-hop">set1</a>
+        <a href="https://soundcloud.com/sonarphantom/likes">set2</a>
+
+        <a href="https://soundcloud.com/jacquestransversal">jacques</a>
+
+        <a href="https://soundcloud.com/leolebug/sets/music-to-wake-children-up">leobug</a>
+        <a href="https://soundcloud.com/lamaryllis-bar/sets/nova-tunes-0-1-2">nova</a>
+        <a href="https://soundcloud.com/bon-entendeur-music">bon entendeur</a>
+        <a href="https://soundcloud.com/lugan-jason/sets/hip-hop-trip-hop-chill">set3</a>
+        <a href="https://soundcloud.com/rita-jalil/sets/oldies">oldies</a>
+        <a href="https://soundcloud.com/valentin-legrand-52759937/sets/nova-tunes">nova2</a>
+        <a href="https://soundcloud.com/katie-singsank/sets/down-tempo-instrumental-jazz">set4</a>
+        <a href="https://soundcloud.com/simon-hoyt/sets/sexy-jazzy-funky-and-or-groovy">moistening</a>
+        <a href="https://soundcloud.com/jazzynba/sets/electro">jazzy ecltro</a>
+        <a href="https://soundcloud.com/stef-hof/sets/jazz-beats">pianobeats</a>
+        <a href="https://soundcloud.com/timmeyyyyy/sets/jazzy-beats">jazzybeats</a>
+        <a href="https://soundcloud.com/alsongs-2/sets/jazzy-smoothy-groovy">smoothie groovy</a>
+        <a href="https://soundcloud.com/fridaisgren/sets/jazzy-eargasm">toogroovy</a>
+
+        </div>
+        <a href="https://soundcloud.com/user-955491205/sets/quality-streets-1"></a>
+
+
+      </div>
+
+    </div>
+
+    <!-- remote control button -->
+    <div class="footer">
+      <a href="#" class="sc-remote-link">Toggle player</a>
+      2010
+    </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/soundcloud.player.api.js"></script>
+    <script type="text/javascript" src="./js/sc-player.js"></script>
+
+    <!-- Custom player initializion, in case you want to pass additional options  -->
+    <script type="text/javascript">
+      $.scPlayer.defaults.onDomReady = function() {
+        $('a.sc-player, div.sc-player').scPlayer({
+          // randomize tracks in a playlist
+          randomize: true
+        });
+      };
+    </script>
+
+    <!-- add a customizable remote control button -->
+    <script type="text/javascript">
+
+      $(function() {
+        // sc-player remote control simulates the click on the play/pause button
+        $(document).on('click','a.sc-remote-link', function(event) {
+          var $link = $(this),
+              $pause = $('.playing a.sc-pause');
+
+          if ($pause.length) {
+            $pause.click();
+          }else{
+            $('a.sc-play:first').click();
+          }
+          return false;
+        });
+
+        // update the remote buttons class, when changing player state
+        var toggleLink = function(event) {
+          $('a.sc-remote-link').toggleClass('playing', event.type === 'scPlayer:onMediaPlay');
+        };
+        $(document)
+          .bind('scPlayer:onMediaPlay', toggleLink)
+          .bind('scPlayer:onMediaEnd', toggleLink)
+          .bind('scPlayer:onMediaPause', toggleLink);
+      });
+
+    </script>
+
+
+  </body>
+
+ </html>
